@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#318B32</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="Barra">#189235</color>
+    <color name="boton">#3AA770</color>
+    <color name="negro">#000</color>
+    <color name="semi_transparent">#66000000</color>
+</resources>
