@@ -103,7 +103,7 @@
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
                     android:src="@drawable/foto_a"
-                    android:onClick="Pasar"/>
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -127,7 +127,6 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
-                    android:onClick="pasar2"
                     android:src="@drawable/slide1" />
 
                 <TextView

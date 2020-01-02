@@ -12,8 +12,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.example.faunora.Fotos.CameraActivity;
-import com.example.faunora.Fotos.ClassifierActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -51,14 +49,6 @@ public class MainActivity extends AppCompatActivity {
         barra.startAnimation(frombottom);
 
     }
-    public void Pasar(View view){
-        Intent i=new Intent(getApplicationContext(), ClassifierActivity.class);
-        startActivity(i);
 
-    }
-    public void pasar2(View view){
-        Intent i2=new Intent(getApplicationContext(),ClassifierActivity.class);
-        startActivity(i2);
-    }
     }
 
