@@ -103,6 +103,7 @@
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
                     android:src="@drawable/foto_a"
+                    android:onClick="pasar_detector1"
                     />
 
                 <TextView

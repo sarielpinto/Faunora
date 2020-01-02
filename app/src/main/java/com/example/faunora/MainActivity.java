@@ -12,6 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.faunora.Detector1.Main2Activity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -49,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         barra.startAnimation(frombottom);
 
     }
-
+        public void pasar_detector1(View view){
+        Intent intent =new Intent(this, Main2Activity.class);
+        startActivity(intent);
+        }
     }
 

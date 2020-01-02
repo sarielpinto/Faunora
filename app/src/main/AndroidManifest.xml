@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Fotos_2.CameraConnectionFragment2"></activity>
+        <activity android:name=".Detector1.Main2Activity"></activity>
+        <activity android:name=".Fotos_2.CameraConnectionFragment2" />
         <activity android:name=".Fotos_2.CameraActivity2" />
         <activity
             android:name=".Fotos.ClassifierActivity"

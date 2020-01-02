@@ -12,18 +12,8 @@
     <string name="nnapi">NNAPI</string>
     <string name="threads">Threads:</string>
 
-    <string name="model">Model:</string>
-    <string-array name="models">
-        <item>FLORA</item>
-        <item>FAUNA</item>
-    </string-array>
 
-    <string name="device">Device:</string>
-    <string-array name="devices">
-        <item>CPU</item>
-        <item>GPU</item>
-        <item>NNAPI</item>
-    </string-array>
+    <string name="detect_object">Detectar Objeto</string>
 </resources>
 
 
