@@ -45,6 +45,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
     // Build off of nightly TensorFlow Lite
-   implementation 'com.wonderkiln:camerakit:0.13.1'
+    implementation 'com.wonderkiln:camerakit:0.13.1'
     implementation 'org.tensorflow:tensorflow-lite:+'
 }

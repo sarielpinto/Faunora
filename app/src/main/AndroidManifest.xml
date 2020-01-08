@@ -16,12 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Detector1.Main2Activity"></activity>
-        <activity android:name=".Fotos_2.CameraConnectionFragment2" />
-        <activity android:name=".Fotos_2.CameraActivity2" />
-        <activity
-            android:name=".Fotos.ClassifierActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".detail"></activity>
+
+        <activity android:name=".Detector1.Main2Activity" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
