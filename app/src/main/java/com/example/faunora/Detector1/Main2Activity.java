@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.faunora.R;
 
+import com.example.faunora.detalle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.wonderkiln.camerakit.CameraKitError;
 import com.wonderkiln.camerakit.CameraKitEvent;
@@ -160,8 +161,8 @@ public class Main2Activity extends AppCompatActivity {
         });
     }
     public void pasaradatos(View v){
-        //Intent intent=new Intent(getApplicationContext(), detalles.class);
-        //intent.putExtra("nombre", remplazo2);
-        //startActivity(intent);
+        Intent intent=new Intent(getApplicationContext(), detalle.class);
+        intent.putExtra("nombre", remplazo2);
+        startActivity(intent);
     }
 }
