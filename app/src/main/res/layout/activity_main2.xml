@@ -24,6 +24,7 @@
         android:layout_gravity="center|top"
         android:layout_marginTop="300dp"
         android:clickable="true"
+        android:onClick="pasaradatos"
         android:gravity="center"
         android:orientation="horizontal">
 

@@ -7,4 +7,5 @@
     <color name="boton">#3AA770</color>
     <color name="negro">#000</color>
     <color name="semi_transparent">#66000000</color>
+    <color name="white">#FFF</color>
 </resources>
