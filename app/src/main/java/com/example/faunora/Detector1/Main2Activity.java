@@ -10,9 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.faunora.R;
-import com.example.faunora.detalles;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.wonderkiln.camerakit.CameraKitError;
 import com.wonderkiln.camerakit.CameraKitEvent;
@@ -31,6 +32,8 @@ public class Main2Activity extends AppCompatActivity {
     private static final boolean QUANT = false;
     private static final String LABEL_PATH = "labels.txt";
     private static final int INPUT_SIZE = 224;
+
+    String remplazo2;
 
     private Classifier classifier;
 
@@ -72,7 +75,14 @@ public class Main2Activity extends AppCompatActivity {
 
                 final List<Classifier.Recognition> results = classifier.recognizeImage(bitmap);
 
-                textViewResult.setText(results.toString());
+                //quitar los [] que se encuentran en el nombre
+                String cadena=results.toString();
+                String remplazo=cadena.replace("[","");
+                remplazo2=remplazo.replace("]","");
+
+                //impirmir en el textviewresults
+                textViewResult.setText(remplazo2);
+                //Toast.makeText(getApplicationContext(),"hola"+remplazo2,Toast.LENGTH_SHORT).show();
 
             }
 
@@ -145,12 +155,13 @@ public class Main2Activity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                btnDetectObject.setVisibility(View.VISIBLE);
+                //btnDetectObject.setVisibility(View.VISIBLE);
             }
         });
     }
     public void pasaradatos(View v){
-        Intent intent=new Intent(getApplicationContext(), detalles.class);
-        startActivity(intent);
+        //Intent intent=new Intent(getApplicationContext(), detalles.class);
+        //intent.putExtra("nombre", remplazo2);
+        //startActivity(intent);
     }
 }

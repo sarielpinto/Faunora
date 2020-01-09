@@ -1,6 +1,8 @@
 package com.example.faunora.Detector1;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,7 +23,7 @@ public interface Classifier {
          * Whether or not the model features quantized or float weights.
          */
         private final boolean quant;
-
+        Context c;
         /**
          * A sortable score for how good the recognition is relative to others. Higher should be better.
          */
@@ -33,6 +35,7 @@ public interface Classifier {
             this.title = title;
             this.confidence = confidence;
             this.quant = quant;
+
         }
 
         public String getId() {
@@ -56,6 +59,7 @@ public interface Classifier {
 
             if (title != null) {
                 resultString += title + " ";
+                //Toast.makeText(c,"hola"+title,Toast.LENGTH_SHORT).show();
             }
 
             if (confidence != null) {
