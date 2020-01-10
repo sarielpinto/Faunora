@@ -47,4 +47,8 @@ dependencies {
     // Build off of nightly TensorFlow Lite
     implementation 'com.wonderkiln:camerakit:0.13.1'
     implementation 'org.tensorflow:tensorflow-lite:+'
+
+    //json
+    implementation 'com.android.volley:volley:1.1.0'
+
 }
