@@ -4,7 +4,7 @@
 
     <uses-sdk />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".detalle"></activity>
+
+        <activity android:name=".datos.CustomListView" />
+        <activity android:name=".detalle" />
         <activity android:name=".Detector1.Main2Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>

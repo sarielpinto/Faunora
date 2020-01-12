@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.faunora.R;
 
+
 import com.example.faunora.detalle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.wonderkiln.camerakit.CameraKitError;
