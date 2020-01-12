@@ -36,7 +36,7 @@ public class detalle extends AppCompatActivity {
         editText=(TextView) findViewById(R.id.et_name);
         editText.setText(nombre_recuperado);
 
-        consultadeidfauna("https://lamenting-twin.000webhostapp.com/faunora/saber_idfauna.php?nombre=Jaguar");
+        consultadeidfauna("https://lamenting-twin.000webhostapp.com/faunora/saber_idfauna.php?nombre="+nombre_recuperado+"");
     }
     public void consultadeidfauna(String URL){
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, response -> {
