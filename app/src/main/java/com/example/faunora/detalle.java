@@ -29,6 +29,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class detalle extends AppCompatActivity {
+    //prueba
 
     String urladdress;
     String[] name;
