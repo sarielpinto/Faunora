@@ -1,6 +1,7 @@
 package com.example.faunora;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.SharedPreferencesCompat;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -43,6 +44,7 @@ public class detalle extends AppCompatActivity {
     String id,ID2;
     RequestQueue requestQueue;
 
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,13 +77,12 @@ public class detalle extends AppCompatActivity {
                     jsonObject=response.getJSONObject(i);
                     id=jsonObject.getString("id_fauna");
 
-                    SharedPreferences prefs =
-                            getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+                    SharedPreferences prefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+                     editor = prefs.edit();
+                     editor.clear().apply();
+                    editor.putString("id_fauna1", id);
+                    editor.apply();
 
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("id_fauna", id);
-                    editor.clear();
-                    editor.commit();
 
 
                 } catch (JSONException e) {
@@ -101,10 +102,11 @@ public class detalle extends AppCompatActivity {
             SharedPreferences prefs =
                     getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
 
-            String Id = prefs.getString("id_fauna", "noexiste");
+            String Id = prefs.getString("id_fauna1", "noexiste");
 
-            Toast.makeText(getApplicationContext(),"Hola"+Id,Toast.LENGTH_LONG).show();
             urladdress="https://lamenting-twin.000webhostapp.com/faunora/consultar_informacion.php?id_fauna=1";
+
+            Toast.makeText(getApplicationContext(),"hola"+Id,Toast.LENGTH_SHORT).show();
             URL url=new URL(urladdress);
             HttpURLConnection con=(HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");
@@ -155,4 +157,5 @@ public class detalle extends AppCompatActivity {
 
 
     }
+
 }
