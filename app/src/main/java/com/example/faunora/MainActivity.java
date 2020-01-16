@@ -52,7 +52,13 @@ public class MainActivity extends AppCompatActivity {
     }
         public void pasar_detector1(View view){
         Intent intent =new Intent(this, Main2Activity.class);
+            intent.putExtra("fauna", "1");
         startActivity(intent);
         }
+    public void pasar_detector2(View view){
+        Intent intent =new Intent(this, Main2Activity.class);
+        intent.putExtra("fauna", "2");
+        startActivity(intent);
+    }
     }
 

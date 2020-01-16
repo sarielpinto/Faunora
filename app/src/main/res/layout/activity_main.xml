@@ -128,7 +128,8 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
-                    android:src="@drawable/slide1" />
+                    android:src="@drawable/slide1"
+                    android:onClick="pasar_detector2"/>
 
                 <TextView
                     android:layout_width="wrap_content"

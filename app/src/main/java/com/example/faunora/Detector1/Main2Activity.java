@@ -30,9 +30,9 @@ import java.util.concurrent.Executors;
 
 public class Main2Activity extends AppCompatActivity {
 
-    private static final String MODEL_PATH = "model.tflite";
+    private static  String MODEL_PATH ;
     private static final boolean QUANT = false;
-    private static final String LABEL_PATH = "labels.txt";
+    private static  String LABEL_PATH ;
     private static final int INPUT_SIZE = 224;
 
     String remplazo2;
@@ -49,6 +49,18 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        Bundle datos = this.getIntent().getExtras();
+        String fauna = datos.getString("fauna");
+
+        if(fauna.equals("1")){
+            MODEL_PATH = "model.tflite";
+            LABEL_PATH = "labels.txt";
+        }else if(fauna.equals("2")){
+            MODEL_PATH = "model.tflite";
+            LABEL_PATH = "labels.txt";
+        }
+
         cameraView = findViewById(R.id.cameraView);
         imageViewResult = findViewById(R.id.imageViewResult);
         textViewResult = findViewById(R.id.textViewResult);
