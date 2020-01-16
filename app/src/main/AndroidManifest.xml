@@ -4,6 +4,7 @@
 
     <uses-sdk />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -17,7 +18,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".Actividades.POSTDETAIL"></activity>
+        <activity
+            android:name=".Actividades.Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Actividades.Login" />
+        <activity android:name=".Actividades.Registro" />
         <activity android:name=".datos.CustomListView" />
         <activity android:name=".detalle" />
         <activity android:name=".Detector1.Main2Activity" />
