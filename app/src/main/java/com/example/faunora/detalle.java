@@ -46,7 +46,7 @@ public class detalle extends AppCompatActivity {
     String id,ID2;
     RequestQueue requestQueue;
     ImageView image;
-
+    String nombre_recuperado;
     SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class detalle extends AppCompatActivity {
 
 
         Bundle datos = this.getIntent().getExtras();
-        String nombre_recuperado = datos.getString("nombre");
+         nombre_recuperado = datos.getString("nombre");
 
         editText=(TextView) findViewById(R.id.et_name);
         editText.setText(nombre_recuperado);
@@ -85,15 +85,12 @@ public class detalle extends AppCompatActivity {
                 try {
                     jsonObject=response.getJSONObject(i);
                     id=jsonObject.getString("id_fauna");
-                    consultadefotosfauna("https://lamenting-twin.000webhostapp.com/faunora/obtener_fotos.php?id_fauna=1");
+                    consultadefotosfauna("https://lamenting-twin.000webhostapp.com/faunora/obtener_fotos.php?id_fauna="+id+"");
 
                     SharedPreferences prefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
                      editor = prefs.edit();
-                     editor.clear().apply();
                     editor.putString("id_fauna1", id);
                     editor.apply();
-
-
 
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -143,7 +140,7 @@ public class detalle extends AppCompatActivity {
 
             String Id = prefs.getString("id_fauna1", "noexiste");
 
-            urladdress="https://lamenting-twin.000webhostapp.com/faunora/consultar_informacion.php?id_fauna=1";
+            urladdress="https://lamenting-twin.000webhostapp.com/faunora/consultar_informacion.php?nombre="+nombre_recuperado+"";
 
             Toast.makeText(getApplicationContext(),"hola"+Id,Toast.LENGTH_SHORT).show();
             URL url=new URL(urladdress);
