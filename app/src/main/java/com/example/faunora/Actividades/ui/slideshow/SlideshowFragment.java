@@ -12,7 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.faunora.Actividades.R;
+import com.example.faunora.R;
+
 
 public class SlideshowFragment extends Fragment {
 
