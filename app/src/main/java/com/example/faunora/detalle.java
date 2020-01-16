@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.faunora.datos.CustomListView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,12 +45,16 @@ public class detalle extends AppCompatActivity {
     TextView editText;
     String id,ID2;
     RequestQueue requestQueue;
+    ImageView image;
 
     SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
+        image=(ImageView)findViewById(R.id.iv_avatar);
+
+
 
 
         Bundle datos = this.getIntent().getExtras();
@@ -69,6 +75,9 @@ public class detalle extends AppCompatActivity {
 
 
     }
+
+
+
     public void consultadeidfauna(String URL){
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, response -> {
             JSONObject jsonObject = null;
@@ -76,6 +85,7 @@ public class detalle extends AppCompatActivity {
                 try {
                     jsonObject=response.getJSONObject(i);
                     id=jsonObject.getString("id_fauna");
+                    consultadefotosfauna("https://lamenting-twin.000webhostapp.com/faunora/obtener_fotos.php?id_fauna=1");
 
                     SharedPreferences prefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
                      editor = prefs.edit();
@@ -94,6 +104,35 @@ public class detalle extends AppCompatActivity {
         requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }
+
+
+    public void consultadefotosfauna(String Url){
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Url, response -> {
+            JSONObject jsonObject = null;
+            for (int i = 0; i <response.length(); i++) {
+                try {
+                    jsonObject=response.getJSONObject(i);
+                    String url=jsonObject.getString("ruta_imagen");
+
+                    //para imprimir la foto
+                    Picasso.with(this)
+                            .load(url)
+                            .error(R.mipmap.ic_launcher)
+                            .fit()
+                            .centerCrop()
+                            .into(image);
+
+                } catch (JSONException e) {
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }, error -> Toast.makeText(getApplicationContext(), "NO esta entrando en el if", Toast.LENGTH_LONG).show());
+        requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
+    }
+
+
 
     private void collectData()
     {
