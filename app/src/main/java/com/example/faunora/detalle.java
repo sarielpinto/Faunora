@@ -47,6 +47,7 @@ public class detalle extends AppCompatActivity {
     RequestQueue requestQueue;
     ImageView image;
     String nombre_recuperado;
+    String fauna;
     SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class detalle extends AppCompatActivity {
 
         Bundle datos = this.getIntent().getExtras();
          nombre_recuperado = datos.getString("nombre");
+         fauna=datos.getString("fauna");
 
         editText=(TextView) findViewById(R.id.et_name);
         editText.setText(nombre_recuperado);
@@ -67,7 +69,12 @@ public class detalle extends AppCompatActivity {
 
         //para listview
         listView=(ListView)findViewById(R.id.lview);
-        consultadeidfauna("https://lamenting-twin.000webhostapp.com/faunora/saber_idfauna.php?nombre="+nombre_recuperado+"");
+        if(fauna.equals("1")) {
+            consultadeidfauna("https://lamenting-twin.000webhostapp.com/faunora/saber_idfauna.php?nombre=" + nombre_recuperado + "");
+        }else if(fauna.equals("2")){
+
+        }
+
         StrictMode.setThreadPolicy((new StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
         collectData();
         CustomListView customListView=new CustomListView(this,name,email);
@@ -87,10 +94,6 @@ public class detalle extends AppCompatActivity {
                     id=jsonObject.getString("id_fauna");
                     consultadefotosfauna("https://lamenting-twin.000webhostapp.com/faunora/obtener_fotos.php?id_fauna="+id+"");
 
-                    SharedPreferences prefs = getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
-                     editor = prefs.edit();
-                    editor.putString("id_fauna1", id);
-                    editor.apply();
 
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -135,14 +138,9 @@ public class detalle extends AppCompatActivity {
     {
 //Connection
         try{
-            SharedPreferences prefs =
-                    getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
-
-            String Id = prefs.getString("id_fauna1", "noexiste");
 
             urladdress="https://lamenting-twin.000webhostapp.com/faunora/consultar_informacion.php?nombre="+nombre_recuperado+"";
 
-            Toast.makeText(getApplicationContext(),"hola"+Id,Toast.LENGTH_SHORT).show();
             URL url=new URL(urladdress);
             HttpURLConnection con=(HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");

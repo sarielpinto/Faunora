@@ -44,6 +44,7 @@ public class Main2Activity extends AppCompatActivity {
     private FloatingActionButton btnDetectObject, btnToggleCamera;
     private ImageView imageViewResult;
     private CameraView cameraView;
+    String fauna;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         Bundle datos = this.getIntent().getExtras();
-        String fauna = datos.getString("fauna");
+       fauna = datos.getString("fauna");
 
         if(fauna.equals("1")){
             MODEL_PATH = "model.tflite";
@@ -176,6 +177,7 @@ public class Main2Activity extends AppCompatActivity {
     public void pasaradatos(View v){
         Intent intent=new Intent(getApplicationContext(), detalle.class);
         intent.putExtra("nombre", remplazo2);
+        intent.putExtra("fauna",fauna);
         startActivity(intent);
     }
 }
