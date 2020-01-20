@@ -55,8 +55,8 @@ public class Main2Activity extends AppCompatActivity {
        fauna = datos.getString("fauna");
 
         if(fauna.equals("1")){
-            MODEL_PATH = "model.tflite";
-            LABEL_PATH = "labels.txt";
+            MODEL_PATH = "model_flora.tflite";
+            LABEL_PATH = "labels_flora.txt";
         }else if(fauna.equals("2")){
             MODEL_PATH = "model.tflite";
             LABEL_PATH = "labels.txt";
