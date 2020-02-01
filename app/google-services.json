@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "633694009309",
+    "firebase_url": "https://redfaunora.firebaseio.com",
+    "project_id": "redfaunora",
+    "storage_bucket": "redfaunora.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633694009309:android:ce652bb2947f4d2c5f6834",
+        "android_client_info": {
+          "package_name": "com.example.faunora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633694009309-r548ce324piuqko75viau3r17j1kpn52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAM_tC8SG2-p4lT4yzh8fqhIzc4N92AyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633694009309-r548ce324piuqko75viau3r17j1kpn52.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633694009309:android:86016361d4fd0e335f6834",
+        "android_client_info": {
+          "package_name": "com.example.redfaunora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633694009309-r548ce324piuqko75viau3r17j1kpn52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAM_tC8SG2-p4lT4yzh8fqhIzc4N92AyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633694009309-r548ce324piuqko75viau3r17j1kpn52.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
