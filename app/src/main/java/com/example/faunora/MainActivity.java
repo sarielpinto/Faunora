@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.faunora.Actividades.Login;
 import com.example.faunora.Detector1.Main2Activity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -58,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
     public void pasar_detector2(View view){
         Intent intent =new Intent(this, Main2Activity.class);
         intent.putExtra("fauna", "2");
+        startActivity(intent);
+    }
+    public void pasar_red_social(View v){
+        Intent intent =new Intent(this, Login.class);
         startActivity(intent);
     }
     }

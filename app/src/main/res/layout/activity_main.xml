@@ -188,7 +188,7 @@
         app:hideOnScroll="true"
         app:menu="@menu/bottomappbar_menu"
         app:navigationIcon="@drawable/jaguar"
-        android:clickable="true"/>
+        android:onClick="pasar_red_social"/>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

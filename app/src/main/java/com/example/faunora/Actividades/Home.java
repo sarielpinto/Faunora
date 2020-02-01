@@ -165,7 +165,6 @@ public class Home extends AppCompatActivity
 
 
     private void openGallery() {
-        //TODO: open gallery intent and wait for user to pick an image !
 
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
@@ -233,7 +232,7 @@ public class Home extends AppCompatActivity
                         && pickedImgUri != null ) {
 
                     //everything is okey no empty or null value
-                    // TODO Create Post Object and add it to firebase database
+
                     // first we need to upload post Image
                     // access firebase storage
                     StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("blog_images");
