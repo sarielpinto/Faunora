@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -56,9 +57,6 @@ public class detalle extends AppCompatActivity {
         setContentView(R.layout.activity_detalle);
         image=(ImageView)findViewById(R.id.iv_avatar);
 
-
-
-
         Bundle datos = this.getIntent().getExtras();
          nombre_recuperado = datos.getString("nombre");
          fauna=datos.getString("fauna");
@@ -71,9 +69,9 @@ public class detalle extends AppCompatActivity {
         //para listview
         listView=(ListView)findViewById(R.id.lview);
         if(fauna.equals("1")) {
-            consultadeidfauna("https://lamenting-twin.000webhostapp.com/faunora/saber_idfauna.php?nombre=" + nombre_recuperado + "");
-        }else if(fauna.equals("2")){
 
+        }else if(fauna.equals("2")){
+            consultadeidfauna("https://lamenting-twin.000webhostapp.com/faunora/saber_idfauna.php?nombre=" + nombre_recuperado + "");
         }
 
         StrictMode.setThreadPolicy((new StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
@@ -140,7 +138,7 @@ public class detalle extends AppCompatActivity {
 //Connection
         try{
 
-            urladdress="https://lamenting-twin.000webhostapp.com/faunora/consultar_informacion.php?nombre="+nombre_recuperado+"";
+            urladdress="http://faunora.lighthousecode.com/consultar_informacion.php?nombre=jaguar";
 
             URL url=new URL(urladdress);
             HttpURLConnection con=(HttpURLConnection)url.openConnection();
@@ -166,31 +164,27 @@ public class detalle extends AppCompatActivity {
         catch (Exception ex)
         {
             ex.printStackTrace();
-
         }
 
 //JSON
         try{
             JSONArray ja=new JSONArray(result);
-            JSONObject jo=null;
-            name=new String[ja.length()];
-            email=new String[ja.length()];
 
+
+            JSONObject jo=null;
+            name = new String[ja.length()];
+            email = new String[ja.length()];
 
             for(int i=0;i<=ja.length();i++){
                 jo=ja.getJSONObject(i);
                 name[i]=jo.getString("campos");
                 email[i]=jo.getString("informacion");
-
             }
         }
         catch (Exception ex)
         {
-
             ex.printStackTrace();
         }
-
-
     }
 
 }

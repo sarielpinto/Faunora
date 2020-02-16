@@ -79,5 +79,41 @@
         app:layout_constraintEnd_toEndOf="@+id/login_botton"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/login_botton" />
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bar"
+            style="@style/Widget.MaterialComponents.BottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+
+
+            app:backgroundTint="@color/Barra"
+            app:fabAlignmentMode="center"
+            app:fabCradleMargin="9dp"
+
+
+            app:fabCradleRoundedCornerRadius="30dp"
+            app:fabCradleVerticalOffset="10dp"
+            app:hideOnScroll="true"
+            app:menu="@menu/bottomappbar_menu"
+            app:navigationIcon="@drawable/jaguar"
+            />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera_alt_black_24dp"
+            app:backgroundTint="@color/boton"
+            app:elevation="0dp"
+            app:layout_anchor="@id/bar"
+            android:onClick="pasarCamara"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

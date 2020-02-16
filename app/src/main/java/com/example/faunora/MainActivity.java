@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public void pasar_red_social(View v){
         Intent intent =new Intent(this, Login.class);
         startActivity(intent);
+        finish();
     }
     }
 

@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
 import com.example.faunora.Fragments.HomeFragment;
+import com.example.faunora.MainActivity;
 import com.example.faunora.Modelos.Post;
 import com.example.faunora.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -378,8 +379,7 @@ public class Home extends AppCompatActivity
         if (id == R.id.nav_home) {
 
             getSupportActionBar().setTitle("Home");
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new com.example.faunora.Fragments.HomeFragment()).commit();
-
+            regresar_menu();
         }
         else if (id == R.id.nav_signout) {
 
@@ -416,6 +416,10 @@ public class Home extends AppCompatActivity
 
 
     }
-
+public void regresar_menu (){
+        Intent intent=new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+}
 
 }

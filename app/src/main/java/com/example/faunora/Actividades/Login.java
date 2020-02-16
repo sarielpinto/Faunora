@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.faunora.Detector1.Main2Activity;
+import com.example.faunora.MainActivity;
 import com.example.faunora.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -131,5 +133,10 @@ public class Login extends AppCompatActivity {
             updateUI();
 
         }
+    }
+    public void pasarCamara(View view){
+        Intent intent=new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
