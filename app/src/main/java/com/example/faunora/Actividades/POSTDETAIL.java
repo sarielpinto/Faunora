@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class POSTDETAIL extends AppCompatActivity {
+
     ImageView imgPost,imgUserPost,imgCurrentUser;
     TextView txtPostDesc,txtPostDateName,txtPostTitle;
     EditText editTextComment;
@@ -50,14 +51,15 @@ public class POSTDETAIL extends AppCompatActivity {
     static String COMMENT_KEY = "Comment" ;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postdetail);
+
+
         // let's set the statue bar to transparent
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        getSupportActionBar().hide();
 
         // ini Views
         RvComment = findViewById(R.id.rv_comment);
@@ -197,4 +199,3 @@ public class POSTDETAIL extends AppCompatActivity {
 
 
 }
-
