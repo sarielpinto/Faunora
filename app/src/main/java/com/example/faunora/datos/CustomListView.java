@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,12 +26,14 @@ public class CustomListView extends ArrayAdapter<String> {
 
     private Activity context;
     Bitmap bitmap;
+    ImageButton imageButton;
 
     public CustomListView(Activity context,String[] profilename,String[] email) {
         super(context, R.layout.layout_paradatos,profilename);
         this.context=context;
         this.profilename=profilename;
         this.email=email;
+        imageButton=(ImageButton)context.findViewById(R.id.sonido);
 
     }
 

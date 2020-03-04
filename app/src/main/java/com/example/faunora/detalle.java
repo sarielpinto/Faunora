@@ -5,10 +5,13 @@ import androidx.core.content.SharedPreferencesCompat;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.icu.text.Transliterator;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,11 +54,14 @@ public class detalle extends AppCompatActivity {
     String nombre_recuperado;
     String fauna;
     SharedPreferences.Editor editor;
+    ImageButton imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
         image=(ImageView)findViewById(R.id.iv_avatar);
+
+        imageButton=(ImageButton)findViewById(R.id.sonido);
 
         Bundle datos = this.getIntent().getExtras();
          nombre_recuperado = datos.getString("nombre");
@@ -138,7 +144,7 @@ public class detalle extends AppCompatActivity {
 //Connection
         try{
 
-            urladdress="http://faunora.lighthousecode.com/consultar_informacion.php?nombre=jaguar";
+            urladdress="http://faunora.lighthousecode.com/consultar_informacion.php?nombre="+nombre_recuperado+"";
 
             URL url=new URL(urladdress);
             HttpURLConnection con=(HttpURLConnection)url.openConnection();
@@ -169,8 +175,6 @@ public class detalle extends AppCompatActivity {
 //JSON
         try{
             JSONArray ja=new JSONArray(result);
-
-
             JSONObject jo=null;
             name = new String[ja.length()];
             email = new String[ja.length()];
@@ -179,6 +183,9 @@ public class detalle extends AppCompatActivity {
                 jo=ja.getJSONObject(i);
                 name[i]=jo.getString("campos");
                 email[i]=jo.getString("informacion");
+
+
+
             }
         }
         catch (Exception ex)
