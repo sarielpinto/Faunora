@@ -17,7 +17,7 @@
         android:background="@drawable/formaimgen"
 
 
-        android:src="@drawable/lion"
+        android:src="@drawable/add"
         app:layout_constraintBottom_toTopOf="@+id/textnombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/formaboton"
-        android:text="Acabar registro"
+        android:text="Registrarse"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
