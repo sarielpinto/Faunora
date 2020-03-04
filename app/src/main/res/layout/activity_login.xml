@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.582"
-        app:srcCompat="@drawable/lion" />
+        app:srcCompat="@drawable/lionperdil" />
 
     <EditText
         android:id="@+id/logincorreo"
