@@ -48,7 +48,7 @@ public class detalle extends AppCompatActivity {
     String result=null;
 
     TextView editText;
-    String id,ID2;
+    String id,ID2,id2;
     RequestQueue requestQueue;
     ImageView image;
     String nombre_recuperado;
@@ -75,7 +75,7 @@ public class detalle extends AppCompatActivity {
         //para listview
         listView=(ListView)findViewById(R.id.lview);
         if(fauna.equals("1")) {
-
+                    consultadeidflora("http://faunora.lighthousecode.com/id_flora.php?nombre="+nombre_recuperado+"");
         }else if(fauna.equals("2")){
             consultadeidfauna("https://lamenting-twin.000webhostapp.com/faunora/saber_idfauna.php?nombre=" + nombre_recuperado + "");
         }
@@ -88,7 +88,25 @@ public class detalle extends AppCompatActivity {
 
     }
 
+    public void consultadeidflora(String URL){
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, response -> {
+            JSONObject jsonObject = null;
+            for (int i = 0; i <response.length(); i++) {
+                try {
+                    jsonObject=response.getJSONObject(i);
+                    id2=jsonObject.getString("id");
+                    consultadefotosflora("http://faunora.lighthousecode.com/fotos_flora.php?id_flora="+id2+"");
 
+
+                } catch (JSONException e) {
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }, error -> Toast.makeText(getApplicationContext(), "NO esta entrando en el if", Toast.LENGTH_LONG).show());
+        requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
+    }
 
     public void consultadeidfauna(String URL){
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, response -> {
@@ -110,6 +128,31 @@ public class detalle extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
+    public void consultadefotosflora(String Url){
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Url, response -> {
+            JSONObject jsonObject = null;
+            for (int i = 0; i <response.length(); i++) {
+                try {
+                    jsonObject=response.getJSONObject(i);
+                    String url=jsonObject.getString("ruta_imagen");
+
+                    //para imprimir la foto
+                    Picasso.with(this)
+                            .load(url)
+                            .error(R.mipmap.ic_launcher)
+                            .fit()
+                            .centerCrop()
+                            .into(image);
+
+                } catch (JSONException e) {
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }, error -> Toast.makeText(getApplicationContext(), "NO esta entrando en el if", Toast.LENGTH_LONG).show());
+        requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
+    }
 
     public void consultadefotosfauna(String Url){
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Url, response -> {
@@ -143,8 +186,13 @@ public class detalle extends AppCompatActivity {
     {
 //Connection
         try{
+            if(fauna.equals("1")) {
+                urladdress="http://faunora.lighthousecode.com/consulta_plantas.php?nombre="+nombre_recuperado+"";
+            }else if(fauna.equals("2")){
+                urladdress="http://faunora.lighthousecode.com/consultar_informacion.php?nombre="+nombre_recuperado+"";
+                //consultadeidfauna("https://lamenting-twin.000webhostapp.com/faunora/saber_idfauna.php?nombre=" + nombre_recuperado + "");
+            }
 
-            urladdress="http://faunora.lighthousecode.com/consultar_informacion.php?nombre="+nombre_recuperado+"";
 
             URL url=new URL(urladdress);
             HttpURLConnection con=(HttpURLConnection)url.openConnection();
